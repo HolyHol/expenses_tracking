@@ -1,0 +1,17 @@
+h3
+  | Spending entry
+ul
+  table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+    thead
+      tr
+        td= "Description"
+        td= "Amount"
+    tbody
+      - @spendings.each do |spending|
+        tr
+          td= spending.description
+          td= spending.amount
+          td= link_to "Edit", edit_spending_path(spending.id), class: 'mdl-navigation__link'
+          td= link_to "Destroy", spending_path(spending.id),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }

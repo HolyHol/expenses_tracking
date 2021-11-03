@@ -1,0 +1,9 @@
+h3 Edit spending
+
+= simple_form_for @spending do |f|
+  p
+    = f.input :amount
+  p 
+    = f.input :description
+  p
+    = f.button :submit, "Edit"

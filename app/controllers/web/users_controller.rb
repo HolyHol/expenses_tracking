@@ -8,7 +8,7 @@ class Web::UsersController < Web::ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to(:session)
+      redirect_to(:spendings)
     else
       render(:new)
     end

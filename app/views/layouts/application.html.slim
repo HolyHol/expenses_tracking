@@ -4,7 +4,7 @@ html lang="en"
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title= content_for?(:title) ? yield(:title) : "ExpensesTracking"
+    title= content_for?(:title) ? yield(:title) : "Expenses Tracking"
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
     = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
@@ -20,9 +20,16 @@ html lang="en"
         label.mdl-button.mdl-js-button.mdl-button--icon
           i.material-icons
         span.mdl-layout-title
-          = "ExpensesTracking"
+          = "Expenses Tracking"
         .mdl-layout-spacer
         nav.mdl-navigation
+          - if current_user
+            = link_to "Add new spending", new_spending_path, class: 'mdl-navigation__link'
+            = current_user.email
+            = link_to "Log out", session_path, method: "delete", confirm: "confirm?", class: 'mdl-navigation__link' 
+          -else
+            = link_to "Sign in", new_session_path, class: 'mdl-navigation__link'
+            = link_to "Sign up", new_user_path, class: 'mdl-navigation__link'
     main#main.mdl-layout__content
       .page-content
         = yield

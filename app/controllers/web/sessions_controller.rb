@@ -7,16 +7,16 @@ class Web::SessionsController < Web::ApplicationController
     @session = SessionForm.new(session_params)
 
     if @session.valid?
-      sign_in @session.user
-      redirect_to :session
+      sign_in(@session.user)
+      redirect_to(:spendings)
     else
-      render :new
+      render(:new)
     end
   end
 
   def destroy
     sign_out
-    redirect_to :new_session
+    redirect_to(:new_session)
   end
 
   private
