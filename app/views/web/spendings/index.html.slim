@@ -1,12 +1,18 @@
 h3
   | Spending entry
 ul
+  = search_form_for @q do |f| 
+    .mdl-textfield.mdl-js-textfield
+      = f.label :category_filter  
+      = f.select :category_name_eq, options_from_collection_for_select(Category.all, :id, :name, @q.category_name_eq), include_blank: true 
+      = f.submit
+ul
   table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
     thead
       tr
-        td= "Category"
-        td= "Description"
-        td= "Amount"
+       td= sort_link(@q, :category_name, "Category")
+       td= sort_link(@q, :description, "Description")
+       td= sort_link(@q, :amount, "Amount")
     tbody
       - @spendings.each do |spending|
         tr

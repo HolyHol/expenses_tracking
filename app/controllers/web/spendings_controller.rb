@@ -4,7 +4,8 @@ class Web::SpendingsController < ApplicationController
   end
 
   def index
-    @spendings = current_user.spendings
+    @q = current_user.spendings.ransack(params[:q])
+    @spendings = @q.result
   end
 
   def create
