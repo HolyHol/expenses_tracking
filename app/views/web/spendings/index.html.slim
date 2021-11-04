@@ -4,11 +4,13 @@ ul
   table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
     thead
       tr
+        td= "Category"
         td= "Description"
         td= "Amount"
     tbody
       - @spendings.each do |spending|
         tr
+          td= spending&.category.name
           td= spending.description
           td= spending.amount
           td= link_to "Edit", edit_spending_path(spending.id), class: 'mdl-navigation__link'

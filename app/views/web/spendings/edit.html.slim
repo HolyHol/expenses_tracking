@@ -5,5 +5,7 @@ h3 Edit spending
     = f.input :amount
   p 
     = f.input :description
+  p 
+    = f.association :category
   p
     = f.button :submit, "Edit"

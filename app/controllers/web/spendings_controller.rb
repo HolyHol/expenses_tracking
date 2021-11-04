@@ -40,6 +40,6 @@ class Web::SpendingsController < ApplicationController
   private
 
   def spending_params
-    params.require(:spending).permit(:description, :amount)
+    params.require(:spending).permit(:description, :amount, :category_id)
   end
 end
