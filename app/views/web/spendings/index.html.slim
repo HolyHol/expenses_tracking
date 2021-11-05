@@ -37,9 +37,9 @@ ul
           td= link_to "Destroy", spending_path(spending.id),
                   method: :delete,
                   data: { confirm: "Are you sure?" }
-      tr.mdl-color-text--light-blue-900
+      tr.mdl-color-text--indigo-900.mdl-color--cyan-50
         td colspan='2' 
-          span.mdl-typography--text-left.results 'Total value' 
+          span.mdl-typography--text-left.results Total value 
         td colspan='3'
           span.mdl-typography--text-left.results #{@spendings.sum(:amount)}
         

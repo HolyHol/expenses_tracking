@@ -3,7 +3,7 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   config.error_notification_class = 'alert alert-danger'
-  config.button_class = 'button.mdl-button.mdl-js-button.mdl-button--raised'
+  config.button_class = 'mdl-button mdl-js-button mdl-button--raised'
   config.boolean_label_class = nil
   config.boolean_style = :inline
   config.item_wrapper_tag = :p

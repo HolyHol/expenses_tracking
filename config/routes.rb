@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "web/sessions#new"
+  root :to => "web/spendings#index"
   scope module: :web do
     resource :session, only: [:new, :create, :destroy]
     resources :users, only: [:new, :create]

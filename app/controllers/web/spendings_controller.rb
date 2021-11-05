@@ -2,7 +2,7 @@ class Web::SpendingsController < ApplicationController
   def new
     @spending = Spending.new
   end
-
+  before_action :authenticate_user!
   def index
     @q = current_user.spendings.ransack(params[:q])
     @spendings = @q.result
