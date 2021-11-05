@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Запуск проекта
 
-Things you may want to cover:
+```
+docker-compose build
+docker-compose run --rm ruby bash -c 'bundle install'
+```
 
-* Ruby version
+## Запуск тестов
 
-* System dependencies
+```
+docker-compose run --rm ruby bash -c 'bundle exec rake test'
+```
 
-* Configuration
+## Запуск линтера
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose run --rm ruby bash -c 'bundle exec rubocop'
+```
