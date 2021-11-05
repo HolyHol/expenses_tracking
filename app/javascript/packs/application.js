@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'material-design-lite/material.js';
+import 'getmdl-select/src/js/getmdl-select.js';
 
 Rails.start()
 ActiveStorage.start()

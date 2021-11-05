@@ -1,12 +1,19 @@
-h3
+h3.headlines-style
   | Spending entry
 ul
-  = search_form_for @q do |f| 
-    .mdl-textfield.mdl-js-textfield
-      = f.label :category_filter  
-      = f.select :category_id_eq, options_from_collection_for_select(Category.all, :id, :name, @q.category_name_eq), include_blank: true 
-      = f.submit
-
+    = search_form_for @q do |f| 
+      .mdl-textfield.mdl-js-textfield.getmdl-select
+        input.mdl-textfield__input readonly="" type="text" value="" id='q[category_id_eq]'/
+        input name='q[category_id_eq]' type="hidden" /
+        i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+        label.mdl-textfield__label for="q[category_id_eq]"  Category filter
+        ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu for="q[category_id_eq]" 
+          li.mdl-menu__item data-val='' 
+          - Category.all.each do |category|
+            li.mdl-menu__item data-val="#{category.id}" #{category.name}
+        button.mdl-button.mdl-js-button.mdl-button--raised.button-style Search
+    
+        
 ul
   = search_form_for @q do |f| 
       = f.label :amount  
