@@ -17,3 +17,6 @@ body {
 .page-content .mdl-textfield {
   display: block;
 }
+.results {
+  display: block;
+}

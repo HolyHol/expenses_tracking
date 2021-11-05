@@ -4,8 +4,15 @@ ul
   = search_form_for @q do |f| 
     .mdl-textfield.mdl-js-textfield
       = f.label :category_filter  
-      = f.select :category_name_eq, options_from_collection_for_select(Category.all, :id, :name, @q.category_name_eq), include_blank: true 
+      = f.select :category_id_eq, options_from_collection_for_select(Category.all, :id, :name, @q.category_name_eq), include_blank: true 
       = f.submit
+
+ul
+  = search_form_for @q do |f| 
+      = f.label :amount  
+      = f.search_field :amount_lteq_any
+      = f.submit
+
 ul
   table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
     thead
@@ -23,3 +30,9 @@ ul
           td= link_to "Destroy", spending_path(spending.id),
                   method: :delete,
                   data: { confirm: "Are you sure?" }
+      tr.mdl-color-text--light-blue-900
+        td colspan='2' 
+          span.mdl-typography--text-left.results 'Total value' 
+        td colspan='3'
+          span.mdl-typography--text-left.results #{@spendings.sum(:amount)}
+        
