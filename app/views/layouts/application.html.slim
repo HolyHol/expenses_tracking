@@ -10,8 +10,7 @@ html lang="en"
     = csrf_meta_tags
     /- if !Rails.env.development?
       = stylesheet_packs_with_chunks_tag "application", media: "all"
-
-
+      
   body
     = javascript_packs_with_chunks_tag 'application'
     header.mdl-layout__header.mdl-color--cyan-600
@@ -24,6 +23,7 @@ html lang="en"
         .mdl-layout-spacer
         nav.mdl-navigation
           - if current_user
+            = link_to "My spendings", spendings_path, class:'mdl-navigation__link' 
             = link_to "Add new spending", new_spending_path, class: 'mdl-navigation__link'
             = current_user.email
             = link_to "Log out", session_path, method: "delete", confirm: "confirm?", class: 'mdl-navigation__link' 

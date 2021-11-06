@@ -69,3 +69,8 @@ body {
   left: 40px;
   color: rgb(17, 17, 110);
 }
+
+.chips-style { 
+  position: relative;
+  left: 40px;
+}

@@ -1,5 +1,5 @@
 h3.headlines-style
-  | Spending entry
+  | Spending user #{@user.email}
 ul
     = search_form_for @q do |f| 
       .mdl-textfield.mdl-js-textfield.getmdl-select
@@ -12,7 +12,7 @@ ul
           - Category.all.each do |category|
             li.mdl-menu__item data-val="#{category.id}" #{category.name}
         button.mdl-button.mdl-js-button.mdl-button--raised.button-style Search
-      
+     
 ul
   = search_form_for @q do |f| 
       = f.label :amount  
@@ -29,20 +29,13 @@ ul
     tbody
       - @spendings.each do |spending|
         tr
+          = puts spending.id
           td= spending&.category.name
           td= spending.description
           td= spending.amount
-          td= link_to "Edit", edit_spending_path(spending.id), class: 'mdl-navigation__link'
-          td= link_to "Destroy", spending_path(spending.id),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }
       tr.mdl-color-text--indigo-900.mdl-color--cyan-50
-        td colspan='2' 
+        td colspan='1' 
           span.mdl-typography--text-left.results Total value 
-        td colspan='3'
-          span.mdl-typography--text-left.results #{@spendings.sum(:amount)}
-
-span.mdl-chip.chips-style
-  span.mdl-chip__text Share spendings 
-span.mdl-chip.chips-style
-  span.mdl-chip__text https://pacific-reef-20341.herokuapp.com/users/#{current_user.id}/spendings
+        td colspan='2'
+          span.mdl-typography--text-left #{@spendings.sum(:amount)}
+        

@@ -1,4 +1,4 @@
-class Web::SpendingsController < ApplicationController
+class Web::SpendingsController < Web::ApplicationController
   def new
     @spending = Spending.new
   end
