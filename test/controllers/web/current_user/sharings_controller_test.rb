@@ -2,6 +2,9 @@ require 'test_helper'
 
 class Web::CurrentUser::SharingsControllerTest < ActionController::TestCase
   test 'should get new' do
+    user = create(:user)
+    sign_in(user)
+
     get :new
     assert_response :success
   end
