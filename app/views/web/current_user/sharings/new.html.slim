@@ -1,0 +1,13 @@
+h4.headlines-style Share your spendings
+= simple_form_for @sharing, url:  current_user_sharings_path do |f|
+  p
+    h6 Copy the link and enter user ID to share with
+    span.mdl-chip
+      span.mdl-chip__text https://pacific-reef-20341.herokuapp.com/users/#{current_user.id}/spendings
+  p
+    = f.input :shared_to_user_id
+    - if flash[:notice]
+    .notice.mdl-color-text--red-A700
+      = flash[:notice]
+  p
+    = f.button  :submit, "Share"

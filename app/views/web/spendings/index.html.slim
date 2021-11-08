@@ -14,10 +14,11 @@ ul
         button.mdl-button.mdl-js-button.mdl-button--raised.button-style Search
       
 ul
-  = search_form_for @q do |f| 
-      = f.label :amount  
-      = f.search_field :amount_lteq_any
-      = f.submit
+    = search_form_for @q do |f| 
+      h6 Amount filter
+      = f.search_field :amount_gteq
+      = f.search_field :amount_lteq
+      button.mdl-button.mdl-js-button.mdl-button--raised.button-style1 Search
 
 ul
   table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
@@ -41,8 +42,3 @@ ul
           span.mdl-typography--text-left.results Total value 
         td colspan='3'
           span.mdl-typography--text-left.results #{@spendings.sum(:amount)}
-
-span.mdl-chip.chips-style
-  span.mdl-chip__text Share spendings 
-span.mdl-chip.chips-style
-  span.mdl-chip__text https://pacific-reef-20341.herokuapp.com/users/#{current_user.id}/spendings

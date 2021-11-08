@@ -64,13 +64,12 @@ body {
   left: 85mm;
 }
 
+.button-style1 {
+  left: 4mm;
+}
+
 .headlines-style {
   position: relative;
   left: 40px;
   color: rgb(17, 17, 110);
-}
-
-.chips-style { 
-  position: relative;
-  left: 40px;
 }

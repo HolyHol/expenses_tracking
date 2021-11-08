@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         resources :spendings, only: [:index]
       end
     end
+    namespace :current_user do
+      resources :sharings, only: [:new, :create]
+    end
     resources :spendings, only: [:new, :index, :create, :edit, :update, :destroy]
   end  
 end
