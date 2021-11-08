@@ -7,6 +7,7 @@
 ```
 docker-compose build
 docker-compose run --rm web bash -c "bundle install"
+docker-compose up 
 
 ```
 
