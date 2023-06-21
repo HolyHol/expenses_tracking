@@ -23,8 +23,6 @@ html lang="en"
         .mdl-layout-spacer
         nav.mdl-navigation
           - if current_user
-            = link_to "Share spendings", new_current_user_sharing_path, class:'mdl-navigation__link' 
-            = link_to "Add new spending", new_spending_path, class: 'mdl-navigation__link'
             = link_to current_user.email, spendings_path, class:'mdl-navigation__link' 
             = link_to "Log out", session_path, method: "delete", confirm: "confirm?", class: 'mdl-navigation__link' 
           -else
